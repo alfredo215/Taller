@@ -7,5 +7,6 @@ export const Empleado = new mongoose.Schema({
     nombre: String,
     telefono: Number,
     dui:Number,
+    
    
 });
