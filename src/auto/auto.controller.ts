@@ -9,8 +9,8 @@ export class AutoController {
   constructor(private readonly autoService: AutoService) {}
 
   @Post()
-  create(@Body() CreateAutoDto: CreateAutoDto) {
-    return this.autoService.create(CreateAutoDto);
+  create(@Body() createAutoDto: CreateAutoDto) {
+    return this.autoService.create(createAutoDto);
   }
 
   @Get()

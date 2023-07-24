@@ -12,8 +12,8 @@ export class AutoService {
 
 
   
-    async create(createTallerDto: CreateAutoDto):Promise<Auto> {
-    const nuevo= new this.autoModel(CreateAutoDto);
+    async create(createAutoDto: CreateAutoDto):Promise<Auto> {
+    const nuevo= new this.autoModel(createAutoDto);
      return await nuevo.save();
   }
   async findAll():Promise<Auto[]> {
