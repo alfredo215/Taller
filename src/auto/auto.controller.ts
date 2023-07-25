@@ -3,11 +3,15 @@ import { AutoService } from './auto.service';
 import { CreateAutoDto } from './dto/create-auto.dto';
 import { UpdateAutoDto } from './dto/update-auto.dto';
 import { Auto } from './interface/auto.interface';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Operaciones CRUD Auto")
 @Controller('auto')
 export class AutoController {
   constructor(private readonly autoService: AutoService) {}
 
+
+  @ApiBody({ type: [CreateAutoDto] })
   @Post()
   create(@Body() createAutoDto: CreateAutoDto) {
     return this.autoService.create(createAutoDto);

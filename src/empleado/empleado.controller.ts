@@ -3,11 +3,14 @@ import { EmpleadoService } from './empleado.service';
 import { CreateEmpleadoDto } from './dto/create-empleado.dto';
 import { UpdateEmpleadoDto } from './dto/update-empleado.dto';
 import { Empleado } from './interface/empleado.interface';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Operaciones CRUD Empleado")
 @Controller('empleado')
 export class EmpleadoController {
   constructor(private readonly empleadoService: EmpleadoService) {}
 
+  @ApiBody({ type: [CreateEmpleadoDto] })
   @Post()
   create(@Body() createEmpleadoDto: CreateEmpleadoDto) {
     return this.empleadoService.create(createEmpleadoDto);
